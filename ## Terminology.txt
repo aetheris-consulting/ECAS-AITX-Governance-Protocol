@@ -1,0 +1,9 @@
+## Terminology
+
+- **Role Silo (RS):** A bounded operational context with explicit capability allowlists and refusal rules.
+- **ECAS:** Explicit Contextual Authority Switching; the protocol governing role transitions.
+- **EMI:** ECAS Modal Intercept; a blocking consent interface.
+- **CSO:** Consent State Object; a signed, immutable record of user consent.
+- **BEL:** Behavioral Enforcement Layer; runtime policy enforcing silo constraints.
+- **CRE:** Conflict Resolution Engine; adjudicates policy conflicts.
+- **AITX:** Federated governance infrastructure providing identity, policy, audit, and conflict resolution.

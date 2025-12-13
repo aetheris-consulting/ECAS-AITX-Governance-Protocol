@@ -1,0 +1,15 @@
+stateDiagram-v2
+  [*] --> DEFAULT
+
+  DEFAULT --> AWAITING_CONSENT: intent_requires_role_silo
+  AWAITING_CONSENT --> ACTIVE_SILO: consent_acknowledged + CSO_issued
+  AWAITING_CONSENT --> DEFAULT: user_cancels
+
+  ACTIVE_SILO --> EXPIRED: CSO_invalidated
+  EXPIRED --> DEFAULT: revert_to_safe_state
+
+  DEFAULT --> EMERGENCY_OVERRIDE: emergency_trigger
+  AWAITING_CONSENT --> EMERGENCY_OVERRIDE: emergency_trigger
+  ACTIVE_SILO --> EMERGENCY_OVERRIDE: emergency_trigger
+
+  EMERGENCY_OVERRIDE --> DEFAULT: post_incident_review_complete

@@ -1,0 +1,8 @@
+flowchart LR
+  A[Human Intent] --> B[ECAS Authority Gate]
+  B -->|Authorized| C[AI Behavioral Envelope (BEL)]
+  C --> D[Policy & Compliance (CRE)]
+  D --> E[Execution]
+  E --> F[Physical Safety Kernel]
+
+  F -->|Emergency| B

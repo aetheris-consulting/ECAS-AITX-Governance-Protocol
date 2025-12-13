@@ -1,0 +1,32 @@
+
+[ Identity ]
+↓
+[ ECAS Gatekeeper ]
+↓
+[ Policy / CRE ]
+↓
+[ Orchestrator ]
+↓
+[ Execution ]
+↓
+[ Immutable Ledger ]
+
+ECAS executes **before** orchestration and **before** policy conflict resolution.
+
+---
+
+## 5. Versioning & Compatibility
+
+- Backwards compatibility is **not guaranteed** across major versions
+- CSOs are version-pinned to policy hashes
+- Deprecated precedents remain auditable indefinitely
+
+---
+
+## 6. Conformance
+
+An implementation is ECAS-conformant if and only if:
+- Role transitions are blocking
+- Consent is explicit and logged
+- Behavior changes mechanically
+- Audit artifacts are immutable

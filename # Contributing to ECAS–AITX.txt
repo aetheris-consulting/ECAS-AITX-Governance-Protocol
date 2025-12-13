@@ -1,0 +1,51 @@
+# Contributing to ECAS–AITX
+
+Thank you for your interest in contributing.
+
+This repository defines a **governance protocol**, not a product implementation.
+Contributions should preserve clarity, scope discipline, and technical rigor.
+
+---
+
+## Contribution Guidelines
+
+### What We Welcome
+- Clarifications that improve implementability
+- Corrections to technical or architectural inaccuracies
+- Additional diagrams or test guidance
+- Security or threat-model improvements
+- Editorial improvements that increase precision
+
+### What We Do Not Accept (v1)
+- Feature expansion beyond defined scope
+- Emotional companionship or UX ideology debates
+- Regulatory guarantees or legal claims
+- Model training prescriptions
+- Autonomous weapons discussions
+
+---
+
+## Process
+
+1. Open an issue describing the change
+2. Reference the affected RFC section(s)
+3. Explain impact on conformance or threat model
+4. Submit a focused PR
+
+Large changes may be deferred to v1.1+.
+
+---
+
+## Review Criteria
+
+Changes are evaluated on:
+- Technical correctness
+- Scope preservation
+- Clarity for implementers
+- Audit and liability implications
+
+---
+
+## Code of Conduct
+
+This project follows the Contributor Covenant Code of Conduct.

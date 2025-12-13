@@ -1,0 +1,12 @@
+## Repository Structure (v1)
+
+- README.md
+- RFC-0001-ECAS-AITX.md
+- threat-model.md
+- schemas/
+  - cso.schema.json
+  - role_silo.schema.json
+- diagrams/
+  - ecas_state_machine.mmd
+  - aitx_integration.mmd
+- openapi/ (optional v1.1)

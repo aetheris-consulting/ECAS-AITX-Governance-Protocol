@@ -1,0 +1,40 @@
+## Threat Model (ECAS–AITX v1)
+
+### Threat Class 1: Authority Drift
+**Risk:** AI behaves beyond intended role.
+**Mitigation:** Role silos + BEL hard refusals.
+
+### Threat Class 2: Unreasonable Reliance
+**Risk:** User treats AI as professional authority.
+**Mitigation:** EMI + PID + refusal enforcement.
+
+### Threat Class 3: Consent Repudiation
+**Risk:** User denies awareness of limitations.
+**Mitigation:** Signed CSO + timestamp authority + WORM ledger.
+
+### Threat Class 4: Policy Conflict
+**Risk:** Contradictory regulations (GDPR vs retention).
+**Mitigation:** CRE with escrow + adjudication.
+
+### Threat Class 5: Emergency Abuse
+**Risk:** Override used improperly.
+**Mitigation:** Post-hoc P0 CRE ticket + immutable logging.
+
+### Threat Class 6: Governance Bypass
+**Risk:** Direct model access circumvents controls.
+**Mitigation:** ECAS enforced at MCP + Cell layers.
+
+---
+
+## Residual Risk
+
+ECAS does **not** eliminate:
+- Human misuse
+- Bad faith operators
+- Emotional attachment risks
+- Model hallucinations
+
+It **does**:
+- Reduce systemic negligence
+- Provide defensible evidence
+- Enforce proportional safeguards

@@ -1,0 +1,35 @@
+sequenceDiagram
+  participant U as User
+  participant UI as Client / UI
+  participant G as ECAS Gatekeeper
+  participant P as Policy / CRE
+  participant O as Orchestrator
+  participant X as Execution
+  participant L as Ledger
+
+  U->>UI: Submit request
+  UI->>G: dispatch(request)
+
+  G->>G: Determine required Role Silo
+
+  alt No valid CSO
+    G-->>UI: BLOCK + EMI payload
+    UI->>U: Display consent modal
+    U->>UI: Acknowledge + Consent
+    UI->>G: submit_consent
+    G->>L: CSO_CREATE
+  end
+
+  UI->>G: dispatch(request + CSO)
+  G->>L: ROLE_ACTIVE + BEL_EVAL
+  G->>P: policy_conflict_check
+
+  alt Conflict detected
+    P->>L: CRE_TICKET_CREATE
+    P-->>UI: Pending adjudication
+  else No conflict
+    P-->>O: Approved
+    O->>X: Execute action
+    X->>L: EXECUTION_EVENT
+    X-->>UI: Response
+  end

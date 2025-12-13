@@ -1,0 +1,14 @@
+## ECAS State Model (Conceptual)
+
+States:
+- DEFAULT
+- AWAITING_CONSENT
+- ACTIVE_SILO
+- EXPIRED
+- EMERGENCY_OVERRIDE
+
+Transitions:
+- DEFAULT → AWAITING_CONSENT (intent requires silo)
+- AWAITING_CONSENT → ACTIVE_SILO (CSO issued)
+- ACTIVE_SILO → EXPIRED (timeout / invalidation)
+- ANY → EMERGENCY_OVERRIDE (explicit trigger)

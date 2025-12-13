@@ -1,0 +1,15 @@
+flowchart TD
+  U[User / Operator] --> I[Identity & Auth]
+
+  I --> G[ECAS Gatekeeper]
+  G -->|Valid CSO| P[Policy Engine / CRE]
+  G -->|No CSO| M[EMI Modal Intercept]
+
+  M -->|Acknowledge + Consent| G
+
+  P --> O[Orchestrator]
+  O --> X[Execution Layer<br/>(Models / Apps / Robots)]
+
+  G --> L[Immutable Ledger]
+  P --> L
+  X --> L
