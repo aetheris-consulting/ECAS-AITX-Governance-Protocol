@@ -2,14 +2,19 @@
 
 - README.md
 - RFC-0001-ECAS-AITX.md
-- threat-model.md
+- docs/
+  - locus-local-ordinance-integration.md
 - schemas/
-  - cso.schema.json
-  - role_silo.schema.json
-- diagrams/
-  - ecas_state_machine.mmd
-  - aitx_integration.mmd
-- openapi/ (optional v1.1)
+  - locus_source.schema.json
+- examples/
+  - locus_source.example.json
+- planned/
+  - threat-model.md
+  - schemas/cso.schema.json
+  - schemas/role_silo.schema.json
+  - diagrams/ecas_state_machine.mmd
+  - diagrams/aitx_integration.mmd
+  - openapi/ (optional v1.1)
 
 # ECAS–AITX Governance Framework
 
@@ -63,6 +68,7 @@ If consent expires, behavior **reverts automatically**.
 ✅ Runtime behavioral enforcement (BEL)  
 ✅ Immutable audit logging  
 ✅ Integration with federated policy systems (AITX)  
+✅ LOCUS-aware local ordinance source integration for AITX / CRE screening
 
 🚫 This spec does **not** define:
 - Model architectures
@@ -70,8 +76,30 @@ If consent expires, behavior **reverts automatically**.
 - Emotional companionship design
 - Autonomous lethal systems
 - Regulatory compliance guarantees
+- Automatic legal advice or automatic local-law compliance determinations
 
 Those are intentionally out of scope for v1.
+
+---
+
+## LOCUS Local Ordinance Source Layer
+
+This repository now includes a draft integration path for **LOCUS v1.0**, the LocalLaws U.S. municipal and county ordinance corpus.
+
+LOCUS is useful for ECAS-AITX because it can feed local-law source evidence into the **AITX Conflict Resolution Engine (CRE)** before an AI system acts in a location-sensitive role silo.
+
+Primary integration points:
+
+- `docs/locus-local-ordinance-integration.md` — architecture, governance mapping, runtime flow, risk controls, and conformance extension
+- `schemas/locus_source.schema.json` — provenance-preserving source object for LOCUS-derived ordinance chunks
+- `examples/locus_source.example.json` — example object for a city/county/state-scoped local source record
+
+Important license boundary:
+
+- The LOCUS dataset is published under `cc-by-nc-4.0`.
+- This repository remains Apache-2.0.
+- Do **not** vendor, mirror, or redistribute LOCUS data inside this repository without a separate license review.
+- Treat LOCUS-derived records as source evidence until reviewed and promoted into validated policy constraints.
 
 ---
 
