@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/aetheris-consulting/ECAS-AITX-Governance-Protocol/schemas/locus_source.schema.json",
+  "title": "LOCUS Source Object",
+  "description": "Provenance-preserving source object for LOCUS-derived ordinance chunks used by ECAS-AITX CRE screening. This object stores source evidence and review status, not a final compliance determination.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "source_dataset", "source_license", "retrieved_at", "jurisdiction", "locus", "governance_status", "provenance"],
+  "properties": {
+    "schema_version": {"type": "string", "const": "0.1.0"},
+    "source_dataset": {
+      "type": "object",
+      "required": ["name", "version", "url", "paper_url"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {"type": "string", "const": "LocalLaws/LOCUS-v1"},
+        "version": {"type": "string", "examples": ["v1.0"]},
+        "url": {"type": "string", "format": "uri", "const": "https://huggingface.co/datasets/LocalLaws/LOCUS-v1"},
+        "organization_url": {"type": "string", "format": "uri", "const": "https://huggingface.co/LocalLaws"},
+        "paper_url": {"type": "string", "format": "uri", "const": "https://arxiv.org/abs/2606.19334"}
+      }
+    },
+    "source_license": {"type": "string", "const": "cc-by-nc-4.0"},
+    "retrieved_at": {"type": "string", "format": "date-time"},
+    "jurisdiction": {
+      "type": "object",
+      "required": ["state", "source_jurisdiction_type"],
+      "additionalProperties": false,
+      "properties": {
+        "state": {"type": "string"},
+        "county": {"type": ["string", "null"]},
+        "city": {"type": ["string", "null"]},
+        "source_jurisdiction_type": {"type": "string"}
+      }
+    },
+    "locus": {
+      "type": "object",
+      "required": ["header", "content", "is_substantive", "function"],
+      "additionalProperties": false,
+      "properties": {
+        "row_id": {"type": ["string", "integer", "null"]},
+        "header": {"type": "string"},
+        "content": {"type": "string"},
+        "is_substantive": {"type": "boolean"},
+        "function": {"type": "string", "enum": ["Context", "Rules", "Process", "Enforcement"]},
+        "topic": {"type": ["string", "null"], "enum": ["Buildings", "Business", "Nuisance", "Zoning", "Other", null]},
+        "scores": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "enforcement_discretion": {"type": ["number", "null"]},
+            "opacity": {"type": ["number", "null"]},
+            "paternalism": {"type": ["number", "null"]},
+            "problem_salience": {"type": ["number", "null"]}
+          }
+        }
+      }
+    },
+    "governance_status": {
+      "type": "object",
+      "required": ["review_state", "default_cre_route", "binding_effect"],
+      "additionalProperties": false,
+      "properties": {
+        "review_state": {"type": "string", "enum": ["candidate_source", "needs_review", "validated_constraint", "deprecated_or_superseded", "rejected"]},
+        "default_cre_route": {"type": "string", "enum": ["source_context", "workflow_requirement", "candidate_local_constraint", "manual_triage"]},
+        "binding_effect": {"type": "string", "enum": ["none_source_evidence_only", "candidate_constraint_pending_review", "validated_policy_constraint"]},
+        "reviewer": {"type": ["string", "null"]},
+        "reviewed_at": {"type": ["string", "null"], "format": "date-time"},
+        "policy_hash": {"type": ["string", "null"]}
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["source_url", "retrieval_method", "notes"],
+      "additionalProperties": false,
+      "properties": {
+        "source_url": {"type": "string", "format": "uri"},
+        "retrieval_method": {"type": "string", "enum": ["huggingface_dataset", "derived_index", "manual_review", "external_provider"]},
+        "notes": {"type": "string"}
+      }
+    }
+  }
+}

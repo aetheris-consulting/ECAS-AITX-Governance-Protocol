@@ -1,0 +1,45 @@
+{
+  "schema_version": "0.1.0",
+  "source_dataset": {
+    "name": "LocalLaws/LOCUS-v1",
+    "version": "v1.0",
+    "url": "https://huggingface.co/datasets/LocalLaws/LOCUS-v1",
+    "organization_url": "https://huggingface.co/LocalLaws",
+    "paper_url": "https://arxiv.org/abs/2606.19334"
+  },
+  "source_license": "cc-by-nc-4.0",
+  "retrieved_at": "2026-07-05T00:00:00Z",
+  "jurisdiction": {
+    "state": "oh",
+    "county": "franklin",
+    "city": "columbus",
+    "source_jurisdiction_type": "cities"
+  },
+  "locus": {
+    "row_id": null,
+    "header": "Example heading",
+    "content": "Example source text. Replace with a retrieved LOCUS chunk.",
+    "is_substantive": true,
+    "function": "Rules",
+    "topic": "Business",
+    "scores": {
+      "enforcement_discretion": null,
+      "opacity": null,
+      "paternalism": null,
+      "problem_salience": null
+    }
+  },
+  "governance_status": {
+    "review_state": "candidate_source",
+    "default_cre_route": "candidate_local_constraint",
+    "binding_effect": "candidate_constraint_pending_review",
+    "reviewer": null,
+    "reviewed_at": null,
+    "policy_hash": null
+  },
+  "provenance": {
+    "source_url": "https://huggingface.co/datasets/LocalLaws/LOCUS-v1",
+    "retrieval_method": "huggingface_dataset",
+    "notes": "Example only. Validate current source text and applicability before using it as a runtime control."
+  }
+}
