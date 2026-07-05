@@ -2,11 +2,16 @@
 
 - README.md
 - RFC-0001-ECAS-AITX.md
-- threat-model.md
+- docs/
+  - locus-local-ordinance-integration.md
 - schemas/
-  - cso.schema.json
-  - role_silo.schema.json
-- diagrams/
-  - ecas_state_machine.mmd
-  - aitx_integration.mmd
-- openapi/ (optional v1.1)
+  - locus_source.schema.json
+- examples/
+  - locus_source.example.json
+- planned/
+  - threat-model.md
+  - schemas/cso.schema.json
+  - schemas/role_silo.schema.json
+  - diagrams/ecas_state_machine.mmd
+  - diagrams/aitx_integration.mmd
+  - openapi/ (optional v1.1)
