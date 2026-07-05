@@ -3,6 +3,7 @@
 - README.md
 - RFC-0001-ECAS-AITX.md
 - docs/
+  - ai-agent-0-gate-orientation.md
   - locus-local-ordinance-integration.md
 - schemas/
   - locus_source.schema.json
@@ -68,6 +69,7 @@ If consent expires, behavior **reverts automatically**.
 ✅ Runtime behavioral enforcement (BEL)  
 ✅ Immutable audit logging  
 ✅ Integration with federated policy systems (AITX)  
+✅ AI-agent 0 Gate / Orientation Gate operating manual  
 ✅ LOCUS-aware local ordinance source integration for AITX / CRE screening
 
 🚫 This spec does **not** define:
@@ -79,6 +81,25 @@ If consent expires, behavior **reverts automatically**.
 - Automatic legal advice or automatic local-law compliance determinations
 
 Those are intentionally out of scope for v1.
+
+---
+
+## AI Agent Orientation Layer
+
+Agents using this repository should begin with `docs/ai-agent-0-gate-orientation.md`.
+
+The 0 Gate / Orientation Gate is the pre-execution bootloader for governed AI work. It requires agents to resolve actor, authority, work object, implementation track, industry grouping, jurisdiction, compliance shell, ECAS role-silo requirements, execution boundary, and audit path before applying policy or acting.
+
+Core rule:
+
+```text
+No orientation → no governance.
+No jurisdiction → no compliance claim.
+No provenance → no source trust.
+No review → no binding legal/local-law control.
+No policy hash → no runtime enforcement.
+No audit → no accountable execution.
+```
 
 ---
 
